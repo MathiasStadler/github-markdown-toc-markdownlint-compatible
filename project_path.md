@@ -1,12 +1,15 @@
 # project path
 <!-- keep the format -->
 https://stackoverflow.com/questions/16826657/how-to-exit-a-shell-script-if-targeted-file-doesnt-exist
-Add extention TODO Highlight
+Add extension TODO Highlight
+<!-- keep the format -->
 ## init plain project structure
 <!-- keep the format -->
 ```bash <!-- markdownlint-disable-line code-block-style -->
-create_folder_file=".vscode" \
-&& if [[ -f $create_folder_file ]] ; then echo "file exists"; fi \
+create_folder_file=".vscode" && if [[ (-f ${create_folder_file} ) || ( -d ${create_folder_file} ) || (-L ${create_folder_file}) ]]; \
+then echo "folder/file/link ${create_folder_file} exists"; \
+else echo "folder/file/link ${create_folder_file} NOT exists";\
+fi \
 mkdir -p .vscode \
 && touch .vscode/settings.json \
 && cat <<EoF >.vscode/settings.json
